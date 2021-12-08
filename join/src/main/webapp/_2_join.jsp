@@ -205,16 +205,19 @@
             
             if(form.id.value.valueOf() === ""){
                 const a = document.querySelector('#al0');
+                a.innerText="필수 정보입니다.";
                 a.setAttribute('style','color: red; position: absolute; left: 40%; visibility: visible;');
                 cnt++;
             }
             if(form.pw.value.valueOf() === ""){
                 const a = document.querySelector('#al1');
+                a.innerText="필수 정보입니다.";
                 a.setAttribute('style','color: red; position: absolute; left: 40%; visibility: visible;');
                 cnt++;
             }
             if(form.re_pw.value.valueOf() === ""){
                 const a = document.querySelector('#al2');
+                a.innerText="필수 정보입니다.";
                 a.setAttribute('style','color: red; position: absolute; left: 40%; visibility: visible;');
                 cnt++;
             }
