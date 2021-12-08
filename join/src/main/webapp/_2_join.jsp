@@ -23,36 +23,31 @@
 	<form method="post" action="_2_joinPro.jsp">
 		<div style="position: relative;">
 			<span style="font-size: 1.2em; position: absolute; left: 40%;"><strong>아이디</strong></span><br>
-			<input type="text" style="width: 20%; height: 30px; margin: 7px;"
+			<input type="text"  onchange="idcheck(event)"  style="width: 20%; height: 30px; margin: 7px;"
 				name="id" required> <br>
 			<span id="al0"
-				style="color: red; position: absolute; left: 40%; visibility: hidden;">필수
-				정보입니다.</span>
+				style="color: red; position: absolute; left: 40%; visibility: hidden;"></span>
 		</div>
 		<br>
 		<br>
 
 		<div style="position: relative;">
 			<span style="font-size: 1.2em; position: absolute; left: 40%;"><strong>비밀번호</strong></span><br>
-			<input type="password" style="width: 20%; height: 30px; margin: 7px;"
+			<input id="pwpw"   onchange="pwcheck(event)" type="password" style="width: 20%; height: 30px; margin: 7px;"
 				name="pw" required> <br>
 			<span id="al1"
-				style="color: red; position: absolute; left: 40%; visibility: hidden;">필수
-				정보입니다.</span>
+				style="color: red; position: absolute; left: 40%; visibility: hidden;"></span>
 		</div>
 		<br>
 		<br>
 
 		<div style="position: relative;">
 			<span style="font-size: 1.2em; position: absolute; left: 40%;"><strong>비밀번호
-					재확인</strong></span><br> <input type="password"
+					재확인</strong></span><br> <input type="password"  onchange="re_pwcheck(event)"
 				style="width: 20%; height: 30px; margin: 7px;" required name="re_pw">
 			<br>
 			<span id="al2"
-				style="color: red; position: absolute; left: 40%; visibility: hidden;">필수
-				정보입니다.</span> <span id="pwerr"
-				style="color: red; position: absolute; left: 40%; visibility: hidden;">비밀번호가
-				일치하지 않습니다.</span>
+				style="color: red; position: absolute; left: 40%; visibility: hidden;"></span>
 		</div>
 		<br>
 		<br>
@@ -159,6 +154,52 @@
             id.value='';
         };
 
+        function idcheck(e){
+        	console.log(e.target.value);
+            const a = document.querySelector('#al0');
+        	if(e.target.value.valueOf()===""){
+                 a.innerText="필수 정보입니다.";
+                 a.setAttribute('style','color: red; position: absolute; left: 40%; visibility: visible;');
+        	}else if(e.target.value.length<5 ||e.target.value.length>20){
+                 a.innerText="5-20자의 아이디를 입력하세요";
+                 a.setAttribute('style','color: red; position: absolute; left: 40%; visibility: visible;');
+             }else{
+                a.innerText="";
+                a.setAttribute('style','color: red; position: absolute; left: 40%; visibility: hidden;');
+            }
+         }
+       
+        function pwcheck(e){
+            const a = document.querySelector('#al1');
+        	if(e.target.value.length==0){
+                 a.innerText="필수 정보입니다.";
+                 a.setAttribute('style','color: red; position: absolute; left: 40%; visibility: visible;');
+        	}else if(e.target.value.length<5 ||e.target.value.length>20){
+                 a.innerText="5-20자의 비밀번호를 입력하세요";
+                 a.setAttribute('style','color: red; position: absolute; left: 40%; visibility: visible;');
+             }else{
+                a.innerText="";
+                a.setAttribute('style','color: red; position: absolute; left: 40%; visibility: hidden;');
+            }
+         }
+       
+        function re_pwcheck(e){
+        	const pw =  document.querySelector('#pwpw');
+            const a = document.querySelector('#al2');
+        	if(e.target.value.length==0){
+                 a.innerText="필수 정보입니다.";
+                 a.setAttribute('style','color: red; position: absolute; left: 40%; visibility: visible;');
+        	}else{
+               if(e.target.value.valueOf() !== pw.value.valueOf()){
+                 a.innerText="비밀번호가 일지하지 않습니다.";
+                 a.setAttribute('style','color: red; position: absolute; left: 40%; visibility: visible;');
+               }else{
+                 a.innerText="";
+                 a.setAttribute('style','color: red; position: absolute; left: 40%; visibility: hidden;');
+               }
+            }
+         }
+
         function checkVal(form){
      		let cnt =0;
             
@@ -213,16 +254,10 @@
                 cnt++;
             }
 
-            if(cnt===0){ //유효한 값(1차)
-           		 console.log("ok");
-                //'비밀번호'와 '비밀번호 재확인'이 일치하는 지 확인
-                //if(form.data[1].value.valueOf() !== form.data[2].value.valueOf()){
-                 //   const err = document.querySelector('#pwerr');
-                   // err.setAttribute('style','color: red; position: absolute; left: 40%; visibility: visible;');
-                //}
+            if(cnt===0){ 
+	              form.submit();
+
                 
-                //인증번호가 일치하는 지 확인
-               	form.submit();
             }
 
             
