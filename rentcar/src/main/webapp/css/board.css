@@ -1,0 +1,33 @@
+.container {
+  width: 100%;
+  position: relative;
+}
+.table_div {
+  text-align: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px;
+}
+.table {
+  width: 70%;
+  border: solid 1px #dddddd;
+  margin: 0px;
+  padding: 0px;
+}
+
+#table_title {
+  color: grey;
+  margin: 10px;
+  position: relative;
+  left: 15%;
+}
+
+#write_btn {
+  background-color: #7cd1b8;
+  color: white;
+  margin: 10px;
+  padding: 5px;
+  position: relative;
+  left: 80%;
+}
