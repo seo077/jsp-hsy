@@ -34,7 +34,7 @@
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		session.setAttribute("log", id);
-		script.println("location.href='_4_main.jsp'"); 
+		script.println("location.href='_04_main.jsp'"); 
 		script.println("</script>");
 	}else if(result == -1){
 		PrintWriter script = response.getWriter();

@@ -19,21 +19,21 @@
 	if(session.getAttribute("log") != null){
 		logID = (String)session.getAttribute("log");%>
 	    <div class="nav" id="nav1">  
-	        <a href="_4_main.jsp"><div id="logo"></div></a>
+	        <a href="_04_main.jsp"><div id="logo"></div></a>
 	        
 	        <div class="nav-left" id="nav1-left">
 	            <a><%=logID %>님 로그인 중..</a>
-	            <a href="_5_logout.jsp">로그아웃</a>
+	            <a href="_05_logout.jsp">로그아웃</a>
 	            <a href="">고객센터</a>
 	        </div>
 	    </div>
 	<% }else{%>
 	    <div class="nav" id="nav1">  
-	        <a href="_4_main.jsp"><div id="logo"></div></a>
+	        <a href="_04_main.jsp"><div id="logo"></div></a>
 	        
 	        <div class="nav-left" id="nav1-left">
-	            <a href="_3_login.jsp">로그인</a>
-	            <a href="_1_validate.jsp">회원가입</a>
+	            <a href="_03_login.jsp">로그인</a>
+	            <a href="_01_validate.jsp">회원가입</a>
 	            <a href="">고객센터</a>
 	        </div>
 	    </div>
@@ -43,37 +43,37 @@
     <div class="nav" id="nav2">
         <div>
             <div class="dropdown">
-                <a class="menus" href="_4_main.jsp">단기렌터카</a>
+                <a class="menus" href="_04_main.jsp">단기렌터카</a>
                 <div class="dropdown-content">
                     <a style="font-size: 0.8em;" class="arrow">△</a>
-                    <a href="_3_login.jsp" style="font-size: 0.8em;" class="dropdown-content_content">단기렌터카 안내</a>
-                    <a href="_1_validate.jsp" style="font-size: 0.8em;" class="dropdown-content_content">요금/할인 안내</a>
-                    <a href="_1_validate.jsp" style="font-size: 0.8em;" class="dropdown-content_content">단기렌터카 예약</a>
+                    <a href="" style="font-size: 0.8em;" class="dropdown-content_content">단기렌터카 안내</a>
+                    <a href="" style="font-size: 0.8em;" class="dropdown-content_content">요금/할인 안내</a>
+                    <a href="" style="font-size: 0.8em;" class="dropdown-content_content">단기렌터카 예약</a>
                 </div>
             </div>
             <div class="dropdown">
-                <a class="menus" href="_4_main.jsp">장기렌터카</a>
+                <a class="menus" href="_04_main.jsp">장기렌터카</a>
                 <div class="dropdown-content">
                     <a style="font-size: 0.8em;" class="arrow">△</a>
-                    <a href="_3_login.jsp" style="font-size: 0.8em;" class="dropdown-content_content">개인 장기렌터카</a>
-                    <a href="_3_login.jsp" style="font-size: 0.8em;" class="dropdown-content_content">법인 장기렌터카</a>
-                    <a href="_1_validate.jsp" style="font-size: 0.8em;" class="dropdown-content_content">장기렌터카 예약</a>
+                    <a href="" style="font-size: 0.8em;" class="dropdown-content_content">개인 장기렌터카</a>
+                    <a href="" style="font-size: 0.8em;" class="dropdown-content_content">법인 장기렌터카</a>
+                    <a href="" style="font-size: 0.8em;" class="dropdown-content_content">장기렌터카 예약</a>
                 </div>
             </div>
             <div class="dropdown">
-                <a class="menus" href="_4_main.jsp">커뮤니티</a>
+                <a class="menus" href="_04_main.jsp">커뮤니티</a>
                 <div class="dropdown-content">
                     <a style="font-size: 0.8em;" class="arrow">△</a>
-                    <a href="_3_login.jsp" style="font-size: 0.8em;" class="dropdown-content_content">게시판</a>
-                    <a href="_1_validate.jsp" style="font-size: 0.8em;" class="dropdown-content_content">이벤트</a>
+                    <a href="_06_board.jsp" style="font-size: 0.8em;" class="dropdown-content_content">게시판</a>
+                    <a href="" style="font-size: 0.8em;" class="dropdown-content_content">이벤트</a>
                 </div>
             </div>
             <div class="dropdown">
-                <a class="menus" href="_4_main.jsp">마이페이지</a>
+                <a class="menus" href="_04_main.jsp">마이페이지</a>
                 <div class="dropdown-content">
                     <a style="font-size: 0.8em;" class="arrow">△</a>
-                    <a href="_3_login.jsp" style="font-size: 0.8em;" class="dropdown-content_content">회원정보</a>
-                    <a href="_1_validate.jsp" style="font-size: 0.8em;" class="dropdown-content_content">예약확인</a>
+                    <a href="" style="font-size: 0.8em;" class="dropdown-content_content">회원정보</a>
+                    <a href="" style="font-size: 0.8em;" class="dropdown-content_content">예약확인</a>
                 </div>
             </div>
         </div>
@@ -110,18 +110,18 @@
         <div id="info2">
             <span>Green렌터카 앱 설치</span><br>
             <div class="btns">
-                <a href="_4_main.jsp"><div id="google"></div></a>
-                <a href="_4_main.jsp"><div id="apple"></div></a>
+                <a href=""><div id="google"></div></a>
+                <a href=""><div id="apple"></div></a>
             </div>
         </div>
         
         <div id="info3">
              <span>Green렌터카 SNS</span><br>  
              <div class="btns">
-                <a href="_4_main.jsp"><div id="facebook"></div></a>
-                <a href="_4_main.jsp"><div id="insta"></div></a>
-                <a href="_4_main.jsp"><div id="youtube"></div></a>
-                <a href="_4_main.jsp"><div id="naver"></div></a>
+                <a href=""><div id="facebook"></div></a>
+                <a href=""><div id="insta"></div></a>
+                <a href=""><div id="youtube"></div></a>
+                <a href=""><div id="naver"></div></a>
             </div> 
         </div>
     </footer>

@@ -1,4 +1,5 @@
 .container {
+	margin-top:50px;
   width: 100%;
   position: relative;
 }
@@ -16,6 +17,7 @@
   padding: 0px;
 }
 
+
 #table_title {
   color: grey;
   margin: 10px;
@@ -30,4 +32,32 @@
   padding: 5px;
   position: relative;
   left: 80%;
+}
+
+.view_btn {
+  background-color: #7cd1b8;
+  color: white;
+  margin: 5px;
+  padding: 5px;
+	position: relative;
+  left: 15%;
+}
+
+.like_box{
+	display:flex;
+	text-align: center;
+	justify-content: center;
+  	align-items: center;
+}
+
+#like_btn, #view_view{
+	background-color: #dddddd;
+	color : white;
+	margin:10px;
+}
+
+#reply_form{
+	margin: 10px;
+  	position: relative;
+ 	left: 15%;
 }

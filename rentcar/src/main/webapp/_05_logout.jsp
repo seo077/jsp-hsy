@@ -15,7 +15,7 @@
 	%>
 	
 	<script type="text/javascript">
-		location.href = "_4_main.jsp";
+		location.href = "_04_main.jsp";
 	</script>
 </body>
 </html>

@@ -21,7 +21,7 @@
 		style="color: #fabb51; margin-top: 10px; font-size: 3em;">Green렌터카</h1>
 	<br>
 
-	<form method="post" action="_2_joinPro.jsp">
+	<form method="post" action="_02_joinPro.jsp">
 		<div style="position: relative;">
 			<span style="font-size: 1.2em; position: absolute; left: 40%;"><strong>아이디</strong></span><br>
 			<input type="text" id="idid" onchange="idcheck(idid)"

@@ -47,7 +47,7 @@
 		session.setAttribute("log", id);
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
-		script.println("location.href = '_4_main.jsp';"); 
+		script.println("location.href = '_04_main.jsp';"); 
 		script.println("</script>");
 	} 
 	%>

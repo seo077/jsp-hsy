@@ -16,12 +16,12 @@
         <h1>Green렌터카</h1>
         <div class="container">
             <div class="form">
-                <form method="post" action="_3_loginPro.jsp">
+                <form method="post" action="_03_loginPro.jsp">
                     <input class="login" type="text" placeholder="아이디" name="id"><br>
                     <input class="login" type="text" placeholder="비밀번호" name="pw" id="pw"><br>
                     <a href="">아이디/비밀번호 찾기</a>
                     <span>ㅣ</span>
-                    <a href="_1_validate.jsp">회원가입</a>
+                    <a href="_01_validate.jsp">회원가입</a>
                     <input class="login" id="login_btn" type="submit" value="로그인">
                 </form>
             </div>
