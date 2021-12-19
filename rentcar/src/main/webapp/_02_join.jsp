@@ -144,6 +144,6 @@
 	</form>
 
 
-	<script type="text/javascript" src="join.js"></script>
+	<script type="text/javascript" src="js/join.js"></script>
 </body>
 </html>

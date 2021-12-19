@@ -7,8 +7,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="css/main.css">
+    
+    <meta property="og:title" content="Green렌터카">
+	<meta property="og:description" content=".">
+	<meta property="og:image" content="css/img/logo.png">
     <title>Green렌터카</title>
+	
+    <link rel = "shortcut icon" href="css/img/logo.png" sizes="16x16 32x32 48x48">
+ 	<link rel="stylesheet" type="text/css" href="css/main.css">
+  	<link rel="stylesheet" type="text/css" href="css/rent.css">
 </head>
 <body>
     <!-- 모든 화면에 고정 -->
@@ -45,7 +52,7 @@
             <div id="menu1" class="dropdown">
                 <a href="_04_main.jsp">단기렌터카</a>
                 <div class="dropdown-content">
-                    <a style="font-size: 1em;" class="arrow">△</a>
+                    <a style="font-size: 1em;" class="arrow"> ▲</a>
                     <a href="" style="font-size: 1em;" class="dropdown-content_content">단기렌터카 안내</a>
                     <a href="" style="font-size: 1em;" class="dropdown-content_content">단기렌터카 예약</a>
                 </div>
@@ -53,7 +60,7 @@
             <div id="menu2" class="dropdown">
                 <a href="_04_main.jsp">장기렌터카</a>
                 <div class="dropdown-content">
-                    <a style="font-size: 1em;" class="arrow">△</a>
+                    <a style="font-size: 1em;" class="arrow"> ▲</a>
                     <a href="" style="font-size: 1em;" class="dropdown-content_content">장기렌터카 안내</a>
                     <a href="" style="font-size: 1em;" class="dropdown-content_content">장기렌터카 예약</a>
                 </div>
@@ -61,7 +68,7 @@
             <div id="menu3" class="dropdown">
                 <a href="_04_main.jsp">커뮤니티</a>
                 <div class="dropdown-content">
-                    <a style="font-size: 1em;" class="arrow">△</a>
+                    <a style="font-size: 1em;" class="arrow"> ▲</a>
                     <a href="_06_board.jsp" style="font-size: 1em;" class="dropdown-content_content">게시판</a>
                     <a href="" style="font-size: 1em;" class="dropdown-content_content">이벤트</a>
                 </div>
@@ -69,7 +76,7 @@
             <div id="menu4" class="dropdown">
                 <a href="_04_main.jsp">마이페이지</a>
                 <div class="dropdown-content">
-                    <a style="font-size: 1em;" class="arrow">△</a>
+                    <a style="font-size: 1em;" class="arrow"> ▲</a>
                     <a href="" style="font-size: 1em;" class="dropdown-content_content">회원정보</a>
                     <a href="" style="font-size: 1em;" class="dropdown-content_content">예약확인</a>
                 </div>
@@ -99,14 +106,17 @@
     <!-- 모든 화면에 고정 -->
     <footer>
         <div id="info1">
-            <span>고객센터</span><br>
-            <span>02-000-0000</span><br>
+            <span><strong>고객센터</strong></span><br><br>
+            <div class="btns">
+	            <div id="phone_img"></div>
+	            <span><strong>  02-123-1234</strong></span><br>
+            </div>
             <span>평일 : 오전9시~오후6시</span><br>
             <span>토 : 오전9시~오후3시</span>
         </div>
         
         <div id="info2">
-            <span>Green렌터카 앱 설치</span><br>
+            <span><strong>Green렌터카 앱 설치</strong></span><br><br>
             <div class="btns">
                 <a href=""><div id="google"></div></a>
                 <a href=""><div id="apple"></div></a>
@@ -114,12 +124,13 @@
         </div>
         
         <div id="info3">
-             <span>Green렌터카 SNS</span><br>  
+             <span><strong>Green렌터카 SNS</strong></span><br><br>  
              <div class="btns">
                 <a href=""><div id="facebook"></div></a>
                 <a href=""><div id="insta"></div></a>
                 <a href=""><div id="youtube"></div></a>
                 <a href=""><div id="naver"></div></a>
+                <a href=""><div id="naver_blog"></div></a>
             </div> 
         </div>
     </footer>

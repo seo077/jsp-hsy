@@ -17,7 +17,7 @@
 </head>
 <body>
     <h1 id="title" style="color: #fabb51; margin-top: 10px; font-size: 3em;">가입하기</h1><br>
-    <form action="_2_join.jsp">
+    <form action="_02_join.jsp">
         <input type="checkbox" id="all" onclick="allCheck()"><span><u><strong>사이트 이용약관, 개인정보 수집 및 이용, 위치정보 이용약관(선택),<br>프로모션 정보 수신(선택)에 모두 동의합니다.</strong></u></span><br><br>
         
         <div style="position: relative;">
