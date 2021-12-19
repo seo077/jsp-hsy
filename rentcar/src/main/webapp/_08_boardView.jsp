@@ -1,3 +1,4 @@
+<%@page import="likes.LikesDAO"%>
 <%@page import="comments.CommentsDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="comments.CommentsDAO"%>
@@ -17,10 +18,16 @@
 <body>
 	<%
 	String boardNo = request.getParameter("boardNo");
+	
 	CommentsDAO coDao = CommentsDAO.getInstance();
 	ArrayList<CommentsDTO>replies = coDao.getReplies(boardNo);
 	
     BoardDAO dao = BoardDAO.getInstance();
+	
+    if(request.getParameter("views") != null){
+		int views = Integer.parseInt(request.getParameter("views"));
+		dao.upViews(boardNo, views);
+	}
 	BoardDTO board = dao.getBoardView(boardNo);
 	
 	String logID = null;
@@ -49,57 +56,48 @@
 	<%	
 	}
 	%>
-	<div class="nav" id="nav2">
-		<div>
-			<div class="dropdown">
-				<a class="menus" href="_04_main.jsp">단기렌터카</a>
-				<div class="dropdown-content">
-					<a style="font-size: 0.8em;" class="arrow">△</a> <a
-						href="" style="font-size: 0.8em;"
-						class="dropdown-content_content">단기렌터카 안내</a> <a
-						href="" style="font-size: 0.8em;"
-						class="dropdown-content_content">요금/할인 안내</a> <a
-						href="" style="font-size: 0.8em;"
-						class="dropdown-content_content">단기렌터카 예약</a>
-				</div>
-			</div>
-			<div class="dropdown">
-				<a class="menus" href="_04_main.jsp">장기렌터카</a>
-				<div class="dropdown-content">
-					<a style="font-size: 0.8em;" class="arrow">△</a> <a
-						href="" style="font-size: 0.8em;"
-						class="dropdown-content_content">개인 장기렌터카</a> <a
-						href="" style="font-size: 0.8em;"
-						class="dropdown-content_content">법인 장기렌터카</a> <a
-						href="" style="font-size: 0.8em;"
-						class="dropdown-content_content">장기렌터카 예약</a>
-				</div>
-			</div>
-			<div class="dropdown">
-				<a class="menus" href="_04_main.jsp">커뮤니티</a>
-				<div class="dropdown-content">
-					<a style="font-size: 0.8em;" class="arrow">△</a> <a
-						href="_06_board.jsp" style="font-size: 0.8em;"
-						class="dropdown-content_content">게시판</a> <a href=""
-						style="font-size: 0.8em;" class="dropdown-content_content">이벤트</a>
-				</div>
-			</div>
-			<div class="dropdown">
-				<a class="menus" href="_04_main.jsp">마이페이지</a>
-				<div class="dropdown-content">
-					<a style="font-size: 0.8em;" class="arrow">△</a> 
-					<a href="" style="font-size: 0.8em;" class="dropdown-content_content">회원정보</a> 
-					<a href="" style="font-size: 0.8em; "class="dropdown-content_content">예약확인</a>
-				</div>
-			</div>
-		</div>
-		<div class="nav-left" id="nav2-left">
-			<form style="display: flex;">
-				<input type="search" id="search" placeholder="차 검색" name="search">
-				<input type="button" id="search_btn">
-			</form>
-		</div>
-	</div>
+	   <div class="nav" id="nav2">
+        <div class="nav2_grid">
+            <div id="menu1" class="dropdown">
+                <a href="_04_main.jsp">단기렌터카</a>
+                <div class="dropdown-content">
+                    <a style="font-size: 1em;" class="arrow">△</a>
+                    <a href="" style="font-size: 1em;" class="dropdown-content_content">단기렌터카 안내</a>
+                    <a href="" style="font-size: 1em;" class="dropdown-content_content">단기렌터카 예약</a>
+                </div>
+            </div>
+            <div id="menu2" class="dropdown">
+                <a href="_04_main.jsp">장기렌터카</a>
+                <div class="dropdown-content">
+                    <a style="font-size: 1em;" class="arrow">△</a>
+                    <a href="" style="font-size: 1em;" class="dropdown-content_content">장기렌터카 안내</a>
+                    <a href="" style="font-size: 1em;" class="dropdown-content_content">장기렌터카 예약</a>
+                </div>
+            </div>
+            <div id="menu3" class="dropdown">
+                <a href="_04_main.jsp">커뮤니티</a>
+                <div class="dropdown-content">
+                    <a style="font-size: 1em;" class="arrow">△</a>
+                    <a href="_06_board.jsp" style="font-size: 1em;" class="dropdown-content_content">게시판</a>
+                    <a href="" style="font-size: 1em;" class="dropdown-content_content">이벤트</a>
+                </div>
+            </div>
+            <div id="menu4" class="dropdown">
+                <a href="_04_main.jsp">마이페이지</a>
+                <div class="dropdown-content">
+                    <a style="font-size: 1em;" class="arrow">△</a>
+                    <a href="" style="font-size: 1em;" class="dropdown-content_content">회원정보</a>
+                    <a href="" style="font-size: 1em;" class="dropdown-content_content">예약확인</a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-left" id="nav2-left">
+            <form style="display: flex;">
+                <input type="search" id="search" placeholder="차 검색" name="search">
+                <input type="button" id="search_btn">
+            </form>
+        </div>
+    </div>
 
 	<!-- 모든 화면에 고정 -->
 	<div class="container">
@@ -126,7 +124,7 @@
 						<td colspan="2"><%=date.substring(0,11)+date.substring(11,13)+"시"+date.substring(14,16)+"분" %></td>
 					</tr>
 					<tr>
-						<td>내용</td>
+						<td style="min-height: 200px;">내용</td>
 						<td colspan="2" style="min-height: 200px;"><%=board.getContent() %></td>
 					</tr>
 				</tbody>
@@ -135,12 +133,24 @@
 		
 		<div class="like_box">
 			<div id="like_btn">
-				<a href="" style="color:red">♡</a><br>
-				<a href="">0</a>
+				<%
+				LikesDAO likesdao = LikesDAO.getInstance();
+				int no = Integer.parseInt(boardNo);
+				boolean click = likesdao.getLikes(no, logID);
+				if(click){%>
+					<a href="_12_likesUpdatePro.jsp?boardNo=<%=boardNo %>&userId=<%=logID %>&likes=<%=board.getLikes() %>" style="color:red">♥</a><br>
+				<%	
+				}else{
+				%>
+					<a href="_12_likesUpdatePro.jsp?boardNo=<%=boardNo %>&userId=<%=logID %>&likes=<%=board.getLikes() %>" style="color:red">♡</a><br>
+				<%
+				}
+				%>
+				<a href="_12_likesUpdatePro.jsp?boardNo=<%=boardNo %>&userId=<%=logID %>&likes=<%=board.getLikes() %>"><%=board.getLikes() %></a>
 			</div>
 			<div id="view_view">
 				<a>조회수</a><br>
-				<a>0</a>
+				<a><%=board.getViews() %></a>
 			</div>
 		</div>
 		
@@ -148,7 +158,7 @@
 		<%
 		if(logID.equals(board.getUserId())){%>
 			<a class="view_btn" href="_09_boardUpdate.jsp?boardNo=<%= boardNo%>">수정</a>
-			<a class="view_btn" href="_10_boardDelete.jsp?boardNo=<%= boardNo%>">삭제</a>
+			<a class="view_btn" href="_10_boardDeletePro.jsp?boardNo=<%= boardNo%>">삭제</a>
 		<%
 		}
 		%>
@@ -164,36 +174,34 @@
 						<tr>
 							<th style="background-color: #eeeeee; width:10%;">번호</th>
 							<th style="background-color: #eeeeee; width:10%;">작성자</th>
-							<th style="background-color: #eeeeee; width:50%;">댓글</th>
-							<th style="background-color: #eeeeee; width:10%;">좋아요</th>
-							<th style="background-color: #eeeeee; width:10%;">싫어요</th>
-							<th style="background-color: #eeeeee; width:10%;">작성일</th>
+							<th style="background-color: #eeeeee; width:60%;">댓글</th>
+							<th style="background-color: #eeeeee; width:20%;">작성일</th>
 						</tr>
 						
 					<%
 					if(replies !=null){
 						int size = replies.size();
+						System.out.println(size);
 						for (int i = 0; i < size; i++) {
 						%>
 						<tr>
 							<td><%=i+1%></td>
 							<td><%=replies.get(i).getUserId()%></td>
 							<td><%=replies.get(i).getComments()%></td>
-							<td><%=replies.get(i).getLikes()%></td>
-							<td><%=replies.get(i).getHates()%></td>
-							<td><%=replies.get(i).getRegdate()%></td>
+							<%String temp = String.valueOf(replies.get(i).getRegdate()); %>
+							<td><%=temp.substring(0,11)+temp.substring(11,13)+"시"+temp.substring(14,16)+"분" %></td>
 						</tr>
 						<%
 						}
-						%>
 					}
+					%>
 					</tbody>
 				</table>
 	
 			</div>
 		</div>
 		<div id="reply_form">
-			<form method="post" action="_11_writeReplyPro.jsp?boardNo=<%=boardNo %>">
+			<form method="post" action="_11_writeReplyPro.jsp?boardNo=<%=board.getBoardNo()%>">
 				<input type="text" placeholder="댓글을 입력하세요." name="reply" style="width: 65%; padding:10px">
 				<input type="submit" value="작성" style=" padding:8px">
 			</form>

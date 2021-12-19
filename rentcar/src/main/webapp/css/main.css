@@ -5,6 +5,28 @@
   color: black;
 }
 
+.nav2_grid{
+	z-index:-1;
+	display:grid;
+	width: 60%;
+  	display: grid;
+  	grid-template-columns: 1fr 1fr 1fr 1fr;
+  	grid-template-areas: "menu1 menu2 menu3 menu4";
+	
+}
+#menu1 {
+  	grid-area: menu1;
+}
+#menu2 {
+  grid-area: menu2;
+}
+#menu3 {
+  grid-area: menu3;
+}
+#menu4 {
+  grid-area: menu4;
+}
+
 .dropdown {
   margin: 10px;
   text-align: center;
@@ -15,14 +37,13 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  width: 200%;
   overflow: auto;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
   font-size: 1em;
-  width: 105%;
+  width: 100%;
 }
 .dropdown-content .dropdown-content_content {
   padding: 3px;
@@ -78,9 +99,7 @@ footer {
   width: 80%;
   margin: 0 auto;
   align-items: center;
-
   grid-area: footer;
-  background-color: cadetblue;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: "info1 info2 info3";

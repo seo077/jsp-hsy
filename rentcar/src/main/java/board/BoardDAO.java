@@ -94,4 +94,91 @@ public class BoardDAO {
 		}
 		return board;
 	}
+	
+	public int update(String boardNo, String title,String content) {
+		int no = Integer.parseInt(boardNo);
+		String sql = "UPDATE board SET title = ?, content = ? WHERE boardNo = ?";
+		try {
+			conn = DBManager.getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,title);
+			pstmt.setString(2,content);
+			pstmt.setInt(3, no);
+			
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -2;
+	}
+	
+	public int upViews(String boardNo,int views) {
+		int no = Integer.parseInt(boardNo);
+		String sql = "UPDATE board SET views = ? WHERE boardNo = ?";
+		try {
+			conn = DBManager.getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1,views+1);
+			pstmt.setInt(2,no);
+			
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -2;
+		
+	}
+	
+	public int upLikes(String boardNo,int likes) {
+		int no = Integer.parseInt(boardNo);
+		String sql = "UPDATE board SET likes = ? WHERE boardNo = ?";
+		try {
+			conn = DBManager.getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1,likes+1);
+			pstmt.setInt(2,no);
+			
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -2;
+		
+	}
+	
+	public int downLikes(String boardNo,int likes) {
+		int no = Integer.parseInt(boardNo);
+		String sql = "UPDATE board SET likes = ? WHERE boardNo = ?";
+		try {
+			conn = DBManager.getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1,likes-1);
+			pstmt.setInt(2,no);
+			
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -2;
+		
+	}
+	
+	public int delete(String boardNo) {
+		int no = Integer.parseInt(boardNo);
+		String sql="DELETE FROM board WHERE boardNo = ?";
+		try {
+			conn = DBManager.getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return -2;
+	}
 }

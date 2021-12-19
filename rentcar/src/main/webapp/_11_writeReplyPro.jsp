@@ -27,7 +27,8 @@
 	CommentsDTO comment = new CommentsDTO(boardNo, userId,reply,regdate);
 	dao.writeReply(comment);
 	
-	response.sendRedirect("_08_boardWrite.jsp");
+	String url = String.format("_08_boardView.jsp?boardNo=%d",boardNo);
+	response.sendRedirect(url);
 	%>
 </body>
 </html>

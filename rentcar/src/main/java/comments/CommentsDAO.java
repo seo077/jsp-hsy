@@ -22,6 +22,7 @@ public class CommentsDAO {
 	private ResultSet rs = null;
 	
 	public ArrayList<CommentsDTO> getReplies(String boardNo){
+		replies = new ArrayList<CommentsDTO>();
 		int boardInt = Integer.parseInt(boardNo);
 		String sql= "SELECT * FROM comments WHERE boardNo = ?";
 		try {
@@ -29,7 +30,7 @@ public class CommentsDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1,boardInt);
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				int no = rs.getInt(1);
 				String userId = rs.getString(2);
 				String comments = rs.getString(3);
@@ -60,6 +61,22 @@ public class CommentsDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return -2;
+	}
+	
+	public int delBoard(int boardNo) {
+		String sql = "DELETE FROM comments WHERE boardNo = ?";
+		try {
+			conn = DBManager.getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNo);
+			
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// 데이터베이스 오류
 		return -2;
 	}
 }

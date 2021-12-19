@@ -59,56 +59,48 @@
 	}
 	%>
 
-	<div class="nav" id="nav2">
-		<div>
-			<div class="dropdown">
-				<a class="menus" href="_04_main.jsp">단기렌터카</a>
-				<div class="dropdown-content">
-					<a style="font-size: 0.8em;" class="arrow">△</a> <a href=""
-						style="font-size: 0.8em;" class="dropdown-content_content">단기렌터카
-						안내</a> <a href="" style="font-size: 0.8em;"
-						class="dropdown-content_content">요금/할인 안내</a> <a href=""
-						style="font-size: 0.8em;" class="dropdown-content_content">단기렌터카
-						예약</a>
-				</div>
-			</div>
-			<div class="dropdown">
-				<a class="menus" href="_04_main.jsp">장기렌터카</a>
-				<div class="dropdown-content">
-					<a style="font-size: 0.8em;" class="arrow">△</a> <a href=""
-						style="font-size: 0.8em;" class="dropdown-content_content">개인
-						장기렌터카</a> <a href="" style="font-size: 0.8em;"
-						class="dropdown-content_content">법인 장기렌터카</a> <a href=""
-						style="font-size: 0.8em;" class="dropdown-content_content">장기렌터카
-						예약</a>
-				</div>
-			</div>
-			<div class="dropdown">
-				<a class="menus" href="_04_main.jsp">커뮤니티</a>
-				<div class="dropdown-content">
-					<a style="font-size: 0.8em;" class="arrow">△</a> <a
-						href="_06_board.jsp" style="font-size: 0.8em;"
-						class="dropdown-content_content">게시판</a> <a href=""
-						style="font-size: 0.8em;" class="dropdown-content_content">이벤트</a>
-				</div>
-			</div>
-			<div class="dropdown">
-				<a class="menus" href="_04_main.jsp">마이페이지</a>
-				<div class="dropdown-content">
-					<a style="font-size: 0.8em;" class="arrow">△</a> <a href=""
-						style="font-size: 0.8em;" class="dropdown-content_content">회원정보</a>
-					<a href="" style="font-size: 0.8em;"
-						class="dropdown-content_content">예약확인</a>
-				</div>
-			</div>
-		</div>
-		<div class="nav-left" id="nav2-left">
-			<form style="display: flex;">
-				<input type="search" id="search" placeholder="차 검색" name="search">
-				<input type="button" id="search_btn">
-			</form>
-		</div>
-	</div>
+   <div class="nav" id="nav2">
+        <div class="nav2_grid">
+            <div id="menu1" class="dropdown">
+                <a href="_04_main.jsp">단기렌터카</a>
+                <div class="dropdown-content">
+                    <a style="font-size: 1em;" class="arrow">△</a>
+                    <a href="" style="font-size: 1em;" class="dropdown-content_content">단기렌터카 안내</a>
+                    <a href="" style="font-size: 1em;" class="dropdown-content_content">단기렌터카 예약</a>
+                </div>
+            </div>
+            <div id="menu2" class="dropdown">
+                <a href="_04_main.jsp">장기렌터카</a>
+                <div class="dropdown-content">
+                    <a style="font-size: 1em;" class="arrow">△</a>
+                    <a href="" style="font-size: 1em;" class="dropdown-content_content">장기렌터카 안내</a>
+                    <a href="" style="font-size: 1em;" class="dropdown-content_content">장기렌터카 예약</a>
+                </div>
+            </div>
+            <div id="menu3" class="dropdown">
+                <a href="_04_main.jsp">커뮤니티</a>
+                <div class="dropdown-content">
+                    <a style="font-size: 1em;" class="arrow">△</a>
+                    <a href="_06_board.jsp" style="font-size: 1em;" class="dropdown-content_content">게시판</a>
+                    <a href="" style="font-size: 1em;" class="dropdown-content_content">이벤트</a>
+                </div>
+            </div>
+            <div id="menu4" class="dropdown">
+                <a href="_04_main.jsp">마이페이지</a>
+                <div class="dropdown-content">
+                    <a style="font-size: 1em;" class="arrow">△</a>
+                    <a href="" style="font-size: 1em;" class="dropdown-content_content">회원정보</a>
+                    <a href="" style="font-size: 1em;" class="dropdown-content_content">예약확인</a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-left" id="nav2-left">
+            <form style="display: flex;">
+                <input type="search" id="search" placeholder="차 검색" name="search">
+                <input type="button" id="search_btn">
+            </form>
+        </div>
+    </div>
 
 	<!-- 모든 화면에 고정 -->
 	<div class="container">
@@ -130,10 +122,10 @@
 					for (int i = 0; i < size; i++) {
 					%>
 					<tr>
-						<td><%=boards.get(i).getBoardNo()%></td>
+						<td><%=i+1%></td>
 						<td><%=boards.get(i).getUserId()%></td>
 						<td><a
-							href="_08_boardView.jsp?boardNo=<%=boards.get(i).getBoardNo()%>"><%=boards.get(i).getTitle()%></a></td>
+							href="_08_boardView.jsp?boardNo=<%=boards.get(i).getBoardNo()%>&views=<%=boards.get(i).getViews()%>"><%=boards.get(i).getTitle()%></a></td>
 						<td><%=boards.get(i).getLikes()%></td>
 						<td><%=boards.get(i).getRegdate()%></td>
 						<td><%=boards.get(i).getViews()%></td>
