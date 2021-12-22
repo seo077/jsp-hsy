@@ -96,4 +96,58 @@ public class LikesDAO {
 		// 데이터베이스 오류
 		return -2;
 	}
+	
+	// 회원이 좋아요 누른 게지물
+	public ArrayList<Integer> myLikes(String userId) {
+		ArrayList<Integer>boards = null;
+		String sql = "SELECT boardNo FROM likes WHERE userId = ?";
+		try {
+			conn = DBManager.getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,userId);
+			
+			rs = pstmt.executeQuery();
+			boards = new ArrayList<>();
+			while(rs.next()) {
+				int no = rs.getInt(1);
+				boards.add(no);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return boards;
+	}
+	
+	//삭제
+	public int delLikes(String userId) {
+		String sql = "DELETE FROM likes WHERE userId = ?";
+		try {
+			conn = DBManager.getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,userId);
+			
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -2;
+	}
+	
+	public int updateId(String userId,String newid) {
+		String sql = "UPDATE likes SET userId = ? WHERE userId = ?";
+		try {
+			conn = DBManager.getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,newid);
+			pstmt.setString(2,userId);
+			
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -2;
+	}
 }

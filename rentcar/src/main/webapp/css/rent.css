@@ -78,17 +78,17 @@
 	padding: 0;
 	width: 20vh;
 	height: 5vh;
-	background: url("img/bigLogo.png");
+	background: url("./img/bigLogo.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 }
 
 /* �솕硫� grid */
 body {
-	display: grid;
-	height: 130vh;
-	grid-template-rows: 0.5fr 0.5fr 8fr 1fr;
-	grid-template-areas: "nav1" "nav2" "main" "footer";
+  display: grid;
+  height: auto;
+  grid-template-rows: 6vh 6vh auto 20vh;
+  grid-template-areas: "nav1" "nav2" "main" "footer";
 }
 
 #nav1 {
@@ -104,6 +104,7 @@ body {
 
 .container {
 	grid-area: main;
+	min-height: 100vh;
 }
 
 footer {
@@ -177,7 +178,7 @@ footer {
 	width: 5vh;
 	height: 5vh;
 	border: none;
-	background: url("img/search.png");
+	background: url("./img/search.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -200,7 +201,7 @@ footer {
 	width: 3vh;
 	height: 3vh;
 	margin-right: 5px;
-	background: url("img/phone_img.png");
+	background: url("./img/phone_img.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -211,7 +212,7 @@ footer {
 	width: 15vh;
 	height: 6vh;
 	border: none;
-	background: url("img/google-play-badge.png");
+	background: url("./img/google-play-badge.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 	border: solid 1px lightgray;
@@ -224,7 +225,7 @@ footer {
 	width: 15vh;
 	height: 6vh;
 	border: none;
-	background: url("img/google-play-badge.png");
+	background: url("./img/google-play-badge.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 	border: solid 1px lightgray;
@@ -236,7 +237,7 @@ footer {
 	width: 6vh;
 	height: 6vh;
 	border: none;
-	background: url("img/naver_logo.PNG");
+	background: url("./img/naver_logo.PNG");
 	background-size: cover;
 	background-repeat: no-repeat;
 	border: solid 1px lightgray;
@@ -247,7 +248,7 @@ footer {
 	margin-right: 5px;
 	width: 6vh;
 	height: 6vh;
-	background: url("img/naver_logo.PNG");
+	background: url("./img/naver_logo.PNG");
 	background-size: cover;
 	background-repeat: no-repeat;
 	border: solid 1px lightgray;
@@ -258,7 +259,7 @@ footer {
 	margin-right: 5px;
 	width: 6vh;
 	height: 6vh;
-	background: url("img/naver_logo.PNG");
+	background: url("./img/naver_logo.PNG");
 	background-size: cover;
 	background-repeat: no-repeat;
 	border: solid 1px lightgray;
@@ -269,7 +270,7 @@ footer {
 	margin-right: 5px;
 	width: 6vh;
 	height: 6vh;
-	background: url("img/naver_logo.PNG");
+	background: url("./img/naver_logo.PNG");
 	background-size: cover;
 	background-repeat: no-repeat;
 	border: solid 1px lightgray;
@@ -280,7 +281,7 @@ footer {
 	margin-right: 5px;
 	width: 6vh;
 	height: 6vh;
-	background: url("img/naver_logo.PNG");
+	background: url("./img/naver_logo.PNG");
 	background-size: cover;
 	background-repeat: no-repeat;
 	border: solid 1px lightgray;

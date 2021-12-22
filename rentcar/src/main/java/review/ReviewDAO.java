@@ -1,4 +1,4 @@
-package comments;
+package review;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,56 +6,57 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
+import comments.CommentsDTO;
 import utill.DBManager;
 
-public class CommentsDAO {
-	private CommentsDAO() {};
-	private static CommentsDAO instance = new CommentsDAO();
-	public static CommentsDAO getInstance() {
+public class ReviewDAO {
+
+	private ReviewDAO() {};
+	private static ReviewDAO instance = new ReviewDAO();
+	public static ReviewDAO getInstance() {
 		return instance;
 	}
-	
-	private ArrayList<CommentsDTO>replies = null;
 	
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
 	
-	public ArrayList<CommentsDTO> getReplies(String boardNo){
-		replies = new ArrayList<CommentsDTO>();
-		int boardInt = Integer.parseInt(boardNo);
-		String sql= "SELECT * FROM comments WHERE boardNo = ?";
+	public ArrayList<ReviewDTO> getReviews(int carNo){
+		ArrayList<ReviewDTO>reviews = null;
+		
+		String sql= "SELECT * FROM review WHERE carNo = ?";
 		try {
+			reviews = new ArrayList<ReviewDTO>();
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1,boardInt);
+			pstmt.setInt(1,carNo);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				int no = rs.getInt(1);
 				String userId = rs.getString(2);
-				String comments = rs.getString(3);
-				int likes = rs.getInt(4);
-				int hates = rs.getInt(5);
-				Timestamp regdate = rs.getTimestamp(6);
+				String revieww = rs.getString(3);
+				Timestamp regdate = rs.getTimestamp(4);
+				int real = rs.getInt(5);
 				
-				CommentsDTO comment = new CommentsDTO(no, userId, comments, likes, hates, regdate);
-				replies.add(comment);
+				ReviewDTO review = new ReviewDTO(no, userId, revieww, regdate, real);
+				reviews.add(review);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return replies;
+		return reviews;
 	}
 	
-	public int writeReply(CommentsDTO comment) {
-		String sql = "INSERT INTO comments(boardNo,userId,comments,regdate) VALUES (?,?,?,?)";
+	public int writeReview(ReviewDTO review) {
+		String sql = "INSERT INTO review VALUES (?,?,?,?,?)";
 		try {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, comment.getBoardNo());
-			pstmt.setString(2, comment.getUserId());
-			pstmt.setString(3, comment.getComments());
-			pstmt.setTimestamp(4, comment.getRegdate());
+			pstmt.setInt(1, review.getCarNo());
+			pstmt.setString(2, review.getUserId());
+			pstmt.setString(3, review.getReview());
+			pstmt.setTimestamp(4, review.getRegdate());
+			pstmt.setInt(5, review.getRealuser());
 			
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -64,40 +65,39 @@ public class CommentsDAO {
 		return -2;
 	}
 	
-	public int delBoard(int boardNo) {
-		String sql = "DELETE FROM comments WHERE boardNo = ?";
+	// 구매 완료-> 실구매자로 전환
+	public int turnReal(int carNo,String userId) {
+		String sql="update review set realuser = '1' where userId =? and carNo =?";
 		try {
 			conn = DBManager.getConnection();
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, boardNo);
-			
+			pstmt.setString(1,userId);
+			pstmt.setInt(2, carNo);
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		// 데이터베이스 오류
-		return -2;
+		return -2;	
 	}
 	
 	//삭제
-	public int delComment(String userId) {
-		String sql="DELETE FROM comments WHERE userId = ?";
+	public int delReview(String userId) {
+		String sql="DELETE FROM review WHERE userId =?";
 		try {
 			conn = DBManager.getConnection();
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userId);
-			
+			pstmt.setString(1,userId);
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
-			e.printStackTrace();
+			// TODO: handle exception
 		}
 		return -2;
 	}
 	
 	public int updateId(String userId,String newid) {
-		String sql = "UPDATE comments SET userId = ? WHERE userId = ?";
+		String sql = "UPDATE review SET userId = ? WHERE userId = ?";
 		try {
 			conn = DBManager.getConnection();
 			

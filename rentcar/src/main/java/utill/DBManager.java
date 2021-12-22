@@ -2,6 +2,7 @@ package utill;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.Properties;
 
 public class DBManager {
 	private DBManager() {}
@@ -19,7 +20,6 @@ public class DBManager {
 	
 	public static Connection getConnection(){
 		Connection conn = null;
-		// �����ͺ��̽� ����
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			

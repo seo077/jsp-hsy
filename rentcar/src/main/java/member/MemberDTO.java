@@ -8,7 +8,7 @@ public class MemberDTO {
 	private Date birth_year;
 	private Timestamp regDate;
 	
-	public MemberDTO(String id, String pw, String name, Date birth_year, String gender, String email, String country, String phone_number) {
+	public MemberDTO(String id, String pw, String name, Date birth_year, String gender, String email, String country, String phone_number,Timestamp regdate) {
 		this.id = id;
 		this.pw = pw;
 		this.name = name;
@@ -17,6 +17,7 @@ public class MemberDTO {
 		this.email = email;
 		this.country = country;
 		this.phone_number = phone_number;
+		this.regDate = regdate;
 	}
 	public String getId() {
 		return id;

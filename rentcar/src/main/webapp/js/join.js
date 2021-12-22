@@ -1,25 +1,25 @@
- //아이디 검사
+/* 아이디 검사*/
  function idcheck(id){
     const a = document.querySelector('#al0');
     var idRegExp = /^[a-zA-z0-9]{4,12}$/; // 아이디 유효성 검사
     if(id.value===""){
          a.innerText="필수 정보입니다.";
-         a.setAttribute('style','color: red; position: absolute; left: 40%; visibility: visible;');
+       	a.setAttribute('style','color: red;  position: absolute; left: 40%; visibility: visible;');
     }else if(!idRegExp.test(id.value)){
          a.innerText="아이디는 영문 대소문자와 숫자 4~12자리로 입력해야합니다.";
-         a.setAttribute('style','color: red; position: absolute; left: 40%; visibility: visible;');
+       	a.setAttribute('style','color: red;  position: absolute; left: 40%; visibility: visible;');
      }else{
         a.innerText="";
-        a.setAttribute('style','color: red; position: absolute; left: 40%; visibility: hidden;');
+		a.setAttribute('style','color: red;  position: absolute; left: 40%; visibility: hidden;');
         return true;
     }
     return false;
  }
 
-//비밀번호 검사
+/*비밀번호 검사*/
 function pwcheck(id){
     const a = document.querySelector('#al1');
-    var pwRegExp = /^[a-zA-z0-9]{4,12}$/; // 비밀번호 유효성 검사
+    var pwRegExp = /^[a-zA-z0-9]{4,12}$/; /* 비밀번호 유효성 검사*/
     if(id.value===""){
          a.innerText="필수 정보입니다.";
          a.setAttribute('style','color: red; position: absolute; left: 40%; visibility: visible;');

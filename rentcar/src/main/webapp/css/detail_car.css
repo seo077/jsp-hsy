@@ -1,0 +1,68 @@
+.cars {
+  border: solid 1px lightgray;
+  padding: 10px;
+}
+
+.table_div {
+  margin-top: 10px;
+  text-align: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px;
+}
+.table {
+  width: 90%;
+  height: 15vh;
+  border: solid 1px #dddddd;
+  margin: 0px;
+  padding: 0px;
+}
+
+#table_title {
+  color: grey;
+  margin: 10px;
+  position: relative;
+  left: 5%;
+}
+
+#write_btn {
+  background-color: #7cd1b8;
+  color: white;
+  margin: 10px;
+  padding: 5px;
+  position: relative;
+  left: 85%;
+}
+
+.info {
+  width: 50%;
+  padding: 5px;
+}
+
+.reserve_btn {
+  background-color: tomato;
+  border: solid 1px tomato;
+  border-radius: 5%;
+  color: white;
+  margin: 10px;
+  margin-left: 30%;
+  padding: 10px;
+}
+
+.car_price {
+  font-size: 1.7em;
+}
+
+.option {
+  border: solid 1px blue;
+  border-radius: 5%;
+  color: blue;
+  margin: 1px;
+}
+
+#reply_form {
+  margin: 10px;
+  position: relative;
+  left: 15%;
+}

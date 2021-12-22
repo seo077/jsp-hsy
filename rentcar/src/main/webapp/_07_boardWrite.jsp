@@ -46,38 +46,38 @@
             <div id="menu1" class="dropdown">
                 <a href="_04_main.jsp">단기렌터카</a>
                 <div class="dropdown-content">
-                    <a style="font-size: 1em;" class="arrow">▲</a>
-                    <a href="" style="font-size: 1em;" class="dropdown-content_content">단기렌터카 안내</a>
-                    <a href="" style="font-size: 1em;" class="dropdown-content_content">단기렌터카 예약</a>
+                    <a style="font-size: 1em;" class="arrow"> ▲</a>
+                    <a href="_13_short-term-rent.jsp" style="font-size: 1em;" class="dropdown-content_content">단기렌터카 예약</a>
+                    <a href="_14_short-term-guide.jsp" style="font-size: 1em;" class="dropdown-content_content">단기렌터카 안내</a>
                 </div>
             </div>
             <div id="menu2" class="dropdown">
                 <a href="_04_main.jsp">장기렌터카</a>
                 <div class="dropdown-content">
-                    <a style="font-size: 1em;" class="arrow">▲</a>
-                    <a href="" style="font-size: 1em;" class="dropdown-content_content">장기렌터카 안내</a>
-                    <a href="" style="font-size: 1em;" class="dropdown-content_content">장기렌터카 예약</a>
+                    <a style="font-size: 1em;" class="arrow"> ▲</a>
+                    <a href="_15_long-term-rent.jsp" style="font-size: 1em;" class="dropdown-content_content">장기렌터카 예약</a>
+                    <a href="_16_long-term-guide.jsp" style="font-size: 1em;" class="dropdown-content_content">장기렌터카 안내</a>
                 </div>
             </div>
             <div id="menu3" class="dropdown">
                 <a href="_04_main.jsp">커뮤니티</a>
                 <div class="dropdown-content">
-                    <a style="font-size: 1em;" class="arrow">▲</a>
+                    <a style="font-size: 1em;" class="arrow"> ▲</a>
                     <a href="_06_board.jsp" style="font-size: 1em;" class="dropdown-content_content">게시판</a>
-                    <a href="" style="font-size: 1em;" class="dropdown-content_content">이벤트</a>
+                    <a href="_17_event.jsp" style="font-size: 1em;" class="dropdown-content_content">이벤트</a>
                 </div>
             </div>
             <div id="menu4" class="dropdown">
                 <a href="_04_main.jsp">마이페이지</a>
                 <div class="dropdown-content">
-                    <a style="font-size: 1em;" class="arrow">▲</a>
-                    <a href="" style="font-size: 1em;" class="dropdown-content_content">회원정보</a>
-                    <a href="" style="font-size: 1em;" class="dropdown-content_content">예약확인</a>
+                    <a style="font-size: 1em;" class="arrow"> ▲</a>
+                    <a href="_18_member-info.jsp" style="font-size: 1em;" class="dropdown-content_content">회원정보</a>
+                    <a href="_19_reservation-confirmation.jsp" style="font-size: 1em;" class="dropdown-content_content">예약확인</a>
                 </div>
             </div>
         </div>
         <div class="nav-left" id="nav2-left">
-            <form style="display: flex;">
+            <form style="display: flex;" method="get" action="_20_search-car.jsp">
                 <input type="search" id="search" placeholder="차 검색" name="search">
                 <input type="button" id="search_btn">
             </form>

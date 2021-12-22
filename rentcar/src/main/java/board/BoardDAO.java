@@ -181,4 +181,34 @@ public class BoardDAO {
 		}
 		return -2;
 	}
+	
+	public int delBoard(String userId) {
+		String sql="DELETE FROM board WHERE userId = ?";
+		try {
+			conn = DBManager.getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,userId);
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return -2;
+	}
+	
+	public int updateId(String userId,String newid) {
+		String sql = "UPDATE board SET userId = ? WHERE userId = ?";
+		try {
+			conn = DBManager.getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,newid);
+			pstmt.setString(2,userId);
+			
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -2;
+	}
 }

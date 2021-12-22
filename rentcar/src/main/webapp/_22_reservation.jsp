@@ -1,3 +1,6 @@
+<%@page import="rentalCar.RentalCarDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="rentalCar.RentalCarDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
@@ -14,13 +17,23 @@
     <title>Green렌터카</title>
 	
     <link rel = "shortcut icon" href="css/img/logo.png" sizes="16x16 32x32 48x48">
- 	<link rel="stylesheet" type="text/css" href="css/main.css">
   	<link rel="stylesheet" type="text/css" href="css/rent.css">
+  	<link rel="stylesheet" type="text/css" href="css/main_cars.css">
 </head>
 <body>
     <!-- 모든 화면에 고정 -->
     <%
+    
+    RentalCarDAO rentdao = RentalCarDAO.getInstance();
 	
+    String userId = request.getParameter("userId");
+	String no = request.getParameter("no");
+  	String startday = request.getParameter("startday");
+  	String endday = request.getParameter("endday");
+ 	
+  	int num = Integer.parseInt(no);
+  	RentalCarDTO car = rentdao.getCarInfo(num);
+    
 	// 이미 로그인이 된 상태 => 메인페이지로
 	String logID = null;
 	if(session.getAttribute("log") != null){
@@ -47,13 +60,13 @@
 	<%	
 	}
 	%>
-    <div class="nav" id="nav2">
+     <div class="nav" id="nav2">
         <div class="nav2_grid">
             <div id="menu1" class="dropdown">
                 <a href="_04_main.jsp">단기렌터카</a>
                 <div class="dropdown-content">
                     <a style="font-size: 1em;" class="arrow"> ▲</a>
-                    <a href="_13_short-term-rent.jsp?car_type=전체" style="font-size: 1em;" class="dropdown-content_content">단기렌터카 예약</a>
+                    <a href="_13_short-term-rent.jsp" style="font-size: 1em;" class="dropdown-content_content">단기렌터카 예약</a>
                     <a href="_14_short-term-guide.jsp" style="font-size: 1em;" class="dropdown-content_content">단기렌터카 안내</a>
                 </div>
             </div>
@@ -90,11 +103,50 @@
         </div>
     </div>
     
-    <!-- 모든 화면에 고정 -->
-    
+      <!-- 모든 화면에 고정 -->
     <div class="container">
+      <div class="cars_wrap">
+          <nav class="sel">
+                 <div id="sel_schedule">
+                     <h4><strong>일정 선택</strong></h4>
+                     <span style="color:tomato">대여일 </span><span><%=startday %></span><br>
+                     <span style="color:tomato">반납일 </span><span><%=endday %></span>
+                 </div>
+                 <div id="sel_insurance">
+                     <h4><strong>보험 선택</strong></h4>
+                     <a href="_13_short-term-rent.jsp?usein=0&startday=<%=startday %>&endday=<%=endday %>" style="border: solid 1px lightgray;">미포함</a>
+                     <a href="_13_short-term-rent.jsp?usein=1&startday=<%=startday %>&endday=<%=endday %>" style="border: solid 1px lightgray;">포함</a>
+                 </div>
+                 
+                 <div id="sel_type">
+                     <h4><strong>차종 선택</strong></h4>
+                     <div>
+                         <ul class="types">
+                             <li><a href="_13_short-term-rent.jsp?car_type=전체&startday=<%=startday %>&endday=<%=endday %>">전체</a></li>
+                             <li><a href="_13_short-term-rent.jsp?car_type=경형&startday=<%=startday %>&endday=<%=endday %>">경형</a></li>
+                             <li><a href="_13_short-term-rent.jsp?car_type=소형&startday=<%=startday %>&endday=<%=endday %>">소형</a></li>
+                             <li><a href="_13_short-term-rent.jsp?car_type=중형&startday=<%=startday %>&endday=<%=endday %>">중형</a></li>
+                         </ul>
+                         <ul class="types">
+                             <li><a href="_13_short-term-rent.jsp?car_type=고급&startday=<%=startday %>&endday=<%=endday %>">고급</a></li>
+                             <li><a href="_13_short-term-rent.jsp?car_type=SUV&startday=<%=startday %>&endday=<%=endday %>">SUV</a></li>
+                             <li><a href="_13_short-term-rent.jsp?car_type=승합&startday=<%=startday %>&endday=<%=endday %>">승합</a></li>
+                             <li><a href="_13_short-term-rent.jsp?isdiscount=1&startday=<%=startday %>&endday=<%=endday %>" style="font-size: 0.8em;">특가할인</a></li>
+                         </ul>
+                     </div>
+                 </div>
+          </nav>
+         
+          <main class="cars">
+             
+            <a href="_22_reservationPro.jsp?no=<%=num%>&startday=<%=startday%>&endday=<%=endday %>" style="background-color:tomato">예약/결제</a>
+        </main>
+      </div>
+  </div>
 
-    </div>
+		
+		
+
     
     <!-- 모든 화면에 고정 -->
     <footer>
@@ -128,6 +180,6 @@
         </div>
     </footer>
     <!-- 모든 화면에 고정 -->
-    
+
 </body>
 </html>

@@ -45,7 +45,7 @@ a {
   margin: 0 auto;
   width: 80%;
   height: 70%;
-  background: url("img/car.jpg");
+  background: url("./img/car.jpg");
   background-size: contain;
 }
 

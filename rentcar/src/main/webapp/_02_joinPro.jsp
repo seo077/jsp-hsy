@@ -1,3 +1,5 @@
+<%@page import="java.sql.Timestamp"%>
+<%@page import="java.util.Calendar"%>
 <%@page import="java.io.PrintWriter"%>
 <%@page import="java.sql.Date"%>
 <%@page import="member.MemberDTO"%>
@@ -34,7 +36,11 @@
 	
 	String phone_number = request.getParameter("number");
 	
-	MemberDTO member = new MemberDTO(id, pw, name, birth_year, gender, email, country, phone_number);
+	Calendar cd = Calendar.getInstance();
+	long time = cd.getTimeInMillis();
+	Timestamp regdate = new Timestamp(time);
+	
+	MemberDTO member = new MemberDTO(id, pw, name, birth_year, gender, email, country, phone_number,regdate);
 	
  	int result = dao.join(member);
 	if(result == -2){		//아이디 중복

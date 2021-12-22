@@ -24,10 +24,8 @@
 	<form method="post" action="_02_joinPro.jsp">
 		<div style="position: relative;">
 			<span style="font-size: 1.2em; position: absolute; left: 40%;"><strong>아이디</strong></span><br>
-			<input type="text" id="idid" onchange="idcheck(idid)"
-				style="width: 20%; height: 30px; margin: 7px;" name="id" required>
-			<br> <span id="al0"
-				style="color: red; position: absolute; left: 40%; visibility: hidden;"></span>
+			<input type="text" id="idid" onchange="idcheck(idid)" style="width: 20%; height: 30px; margin: 7px;" name="id" required><br> 
+			<span id="al0" style="color: red; position: absolute; left: 40%; visibility: hidden;"></span>
 		</div>
 		<br> <br>
 
