@@ -100,7 +100,7 @@ insert into rentalCar(img,price,usepeople,company,modelname,fuel,olds,qty,usein,
 values("./carImg/8_rent.jpg",'741400','5',"기아","★2022K5 LPG","LPG","2022",'2','1','1','0','1','1','1','1','0',"중형");
 
 insert into rentalCar(img,price,usepeople,company,modelname,fuel,olds,qty,usein,usenavi,useseat,usewifi,userearcam,usehi_pass,useblack_box,isdiscount,car_type) 
-values("./carImg/9_rent.jpg",'711300','5',"기아","★2021K5 LPG","LPG","2021",'2','1','1','1','1','1','1','1','0',"중형");
+values("./carImg/9_rent.jpg",'711300','5',"현대","★2021쏘나타DN8 LPG","LPG","2021",'2','1','1','1','1','1','1','1','0',"중형");
 
 insert into rentalCar(img,price,usepeople,company,modelname,fuel,olds,qty,usein,usenavi,useseat,usewifi,userearcam,usehi_pass,useblack_box,isdiscount,car_type) 
 values("./carImg/10_rent.jpg",'1172300','5',"현대","★G80","휘발유","2021",'3','1','1','1','1','1','1','0','0',"고급");
