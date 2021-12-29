@@ -1,0 +1,7 @@
+.container {
+	width : 100%;
+  	display : flex;
+  	background: url("/resources/imgs/main_background.jpg");
+  	background-size: cover;
+  	background-repeat: no-repeat;
+}

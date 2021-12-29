@@ -4,12 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>RentCar</title>
+<title>Insert title here</title>
 </head>
 <body>
-
-	<script type="text/javascript">
-		location.href="views/_04_main.jsp";
-	</script>
+	<h1>장기렌터카 가이드</h1>
 </body>
 </html>
