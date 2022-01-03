@@ -11,14 +11,16 @@
 		<%
 		String logId = (String)session.getAttribute("log");
 		if( logId != null){%>
-			<form method="post" action="LogoutPro">
+			<form method="post" action="service">
+				<input type="hidden" name="command" value="logout">
 				<h3>로그인 중인 회원 : <%=logId %></h3>
 				<input type="submit" value="로그아웃">
 			</form>
 		<%	
 		}
 		%>
-	<form method="post" action="Main">
+	<form method="post" action="service">
+		<input type="hidden" name="command" value="main">
 		<input type="submit" value="로그인" name="dir">
 		<input type="submit" value="회원가입" name="dir">
 	</form>
