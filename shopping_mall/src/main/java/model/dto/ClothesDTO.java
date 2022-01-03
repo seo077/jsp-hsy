@@ -7,18 +7,16 @@ public class ClothesDTO {
 	private String img;
 	private int price;
 	private int cnt;
-	private int temperature;
-	private String type;
+	private int tem;
 	
-	public ClothesDTO(int code,String size,String name,String img,int price,int cnt,int temperature,String type) {
+	public ClothesDTO(int code,String size,String name,String img,int price,int cnt,int temperature) {
 		this.code = code;
 		this.size = size;
 		this.name = name;
 		this.img = img;
 		this.price = price;
 		this.cnt = cnt;
-		this.temperature = temperature;
-		this.type = type;
+		this.tem = tem;
 	}
 	
 	public int getCode() {
@@ -57,19 +55,13 @@ public class ClothesDTO {
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
 	}
-	public int getTemperature() {
-		return temperature;
-	}
-	public void setTemperature(int temperature) {
-		this.temperature = temperature;
+
+	public int getTem() {
+		return tem;
 	}
 
-	public String getType() {
-		return type;
+	public void setTem(int tem) {
+		this.tem = tem;
 	}
 
-	public void setType(String type) {
-		this.type = type;
-	}
-	
 }

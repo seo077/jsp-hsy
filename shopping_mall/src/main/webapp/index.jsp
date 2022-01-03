@@ -8,7 +8,7 @@
 </head>
 <body>
 	<%
-	session.setAttribute("log", "admin");
+	session.setAttribute("log", "apple");
 	%>
 	<script>
 		location.href="service?command=goBoard";

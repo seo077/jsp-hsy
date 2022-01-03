@@ -18,7 +18,8 @@
 </head>
 <body>
 	<h1>로그인 페이지</h1>
-	<form method="post" action="LoginPro">
+	<form method="post" action="service">
+		<input type="hidden" name="command" value="login">
         <h1>login</h1>
         <span>id:&#9;</span><input type="text" name = "id"><br>
         <span>pw:&#9;</span><input type="text" name = "pw"><br>

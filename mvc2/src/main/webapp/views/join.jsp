@@ -20,10 +20,11 @@
 <body>
 	<h1>회원가입 페이지</h1>
 	<form method="post" action="JoinPro">
+		<input type="hidden" name="command" value="join">
         <h1>join</h1>
         <span>id:&#9;</span><input type="text" name = "id"><br>
         <span>pw:&#9;</span><input type="text" name = "pw"><br>
-        <span>name:&#9;</span><input type="text" name = "name"><br>
+        <span>name:</span><input type="text" name = "name"><br>
         <input type="submit" value="join">
     </form>
 </body>

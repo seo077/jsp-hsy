@@ -1,5 +1,5 @@
-<%@page import="board.BoardDAO"%>
 <%@page import="board.BoardDTO"%>
+<%@page import="board.BoardDAO"%>
 <%@page import="java.sql.Timestamp"%>
 <%@page import="java.util.Calendar"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
