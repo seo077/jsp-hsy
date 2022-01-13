@@ -84,6 +84,7 @@ function totalTime(){
 	}
 }
 
+
 function selUsein(ths){
 	const start = document.getElementById('startday').value;
 	const end = document.getElementById('endday').value;

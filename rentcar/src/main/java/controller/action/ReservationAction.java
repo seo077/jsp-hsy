@@ -63,7 +63,7 @@ public class ReservationAction implements Action{
 			script.println("<script>");
 			script.println("alert('예약을 성공하였습니다.')");
 			script.println("</script>");
-			url="views/_04_main.jsp";
+			url="views/_19_reservation-confirmation.jsp";
 		} 
 		
 		request.getRequestDispatcher(url).forward(request, response);
